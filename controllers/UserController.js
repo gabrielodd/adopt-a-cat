@@ -141,7 +141,9 @@ module.exports = class UserController {
 
     const {name, email, phone, password, confirmpassword} = req.body
 
-    let image = ""
+    if(req.file) {
+      user.image = req.file.filename
+    }
 
     if(!name) {
       res.status(422).json({message: 'O nome é obrigatório'})
@@ -168,16 +170,6 @@ module.exports = class UserController {
     }
 
     user.phone = phone
-
-    if(!password) {
-      res.status(422).json({message: 'A senha é obrigatório'})
-      return
-    }
-
-    if(!confirmpassword) {
-      res.status(422).json({message: 'A confirmação de senha é obrigatório'})
-      return
-    }
 
     if(password !== confirmpassword) {
       res.status(422).json({message: 'A senha e confirmação de senha devem ser iguais.'})
