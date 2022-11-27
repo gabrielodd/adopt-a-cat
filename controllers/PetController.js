@@ -263,4 +263,20 @@ module.exports = class PetController {
       message: `A visita foi agendada com sucesso, entre em contato com ${pet.user.name} no telefone: ${pet.user.phone}`,
     })
   }
+
+  static async concludeAdoption(req, res) {
+    const id = req.params.id
+
+    // check if pet exists
+    const pet = await Pet.findOne({ _id: id })
+
+    pet.available = false
+
+    await Pet.findByIdAndUpdate(pet._id, pet)
+
+    res.status(200).json({
+      pet: pet,
+      message: `Parabéns! O ciclo de adoção foi finalizado com sucesso!`,
+    })
+  }
 }
