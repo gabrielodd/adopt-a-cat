@@ -1,5 +1,7 @@
 import Input from '../../form/Input'
 
+import styles from '../../form/Form.module.css'
+
 function Register() {
   function handleChange(e) {
 
