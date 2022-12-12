@@ -1,11 +1,14 @@
 import Input from '../../form/Input'
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 
 import styles from '../../form/Form.module.css'
 
+import { Context } from '../../../context/UserContext'
+
 function Register() {
   const [user, setuser] = useState({})
+  const {register} = useContext(Context)
 
   function handleChange(e) {
     setuser({...user, [e.target.name]: e.target.value})
@@ -13,7 +16,7 @@ function Register() {
 
   function handleSubmit(e) {
     e.preventDefault()
-    //register(user)
+    register(user)
   }
 
   return (
@@ -55,6 +58,7 @@ function Register() {
           placeholder="Confirme a sua senha"
           handleOnChange={handleChange}
         />
+        <input type="submit" value="Cadastrar" />
       </form>
       <p>
         Já tem conta? <Link to="/login">Clique aqui.</Link>
