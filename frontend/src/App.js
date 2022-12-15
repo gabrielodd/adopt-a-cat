@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import NavBar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
 import Container from './components/layout/Container'
+import Message from './components/layout/Message'
 
 import Home from './components/pages/Home'
 import Login from './components/pages/Auth/Login'
@@ -15,6 +16,7 @@ function App() {
     <Router>
       <UserProvider>
         <NavBar></NavBar>
+        <Message></Message>
         <Container>
           <Routes>
             <Route exact path="/login" element={<Login/>} />
