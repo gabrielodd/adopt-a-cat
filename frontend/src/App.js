@@ -8,6 +8,7 @@ import Message from './components/layout/Message'
 import Home from './components/pages/Home'
 import Login from './components/pages/Auth/Login'
 import Register from './components/pages/Auth/Register'
+import Profile from './components/pages/User/Profile'
 
 import {UserProvider} from './context/UserContext'
 
@@ -21,6 +22,7 @@ function App() {
           <Routes>
             <Route exact path="/login" element={<Login/>} />
             <Route exact path="/register" element={<Register/>} />
+            <Route exact path="/user/profile" element={<Profile/>} />
             <Route exact path="/" element={<Home/>} />
           </Routes>
         </Container>
