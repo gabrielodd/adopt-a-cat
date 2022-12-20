@@ -10,7 +10,7 @@ import formStyles from '../../form/Form.module.css'
 
 /* hooks */
 import useFlashMessage from '../../../hooks/useFlashMessage'
-//import RoundedImage from '../../layout/RoundedImage'
+import RoundedImage from '../../layout/RoundedImage'
 
 function Profile() {
   const [user, setUser] = useState({})
@@ -39,7 +39,7 @@ function Profile() {
     setUser({ ...user, [e.target.name]: e.target.value })
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault()
 
     let msgType = 'success'
@@ -75,7 +75,7 @@ function Profile() {
     <section>
       <div className={styles.profile_header}>
         <h1>Perfil</h1>
-        {/* {(user.image || preview) && (
+        {(user.image || preview) && (
           <RoundedImage
             src={
               preview
@@ -84,7 +84,7 @@ function Profile() {
             }
             alt={user.name}
           />
-        )} */}
+        )} 
       </div>
       <form onSubmit={handleSubmit} className={formStyles.form_container}>
       <Input
